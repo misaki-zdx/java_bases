@@ -58,7 +58,7 @@ public class Maths {
             insertNote = arr[i];
             j = i - 1;
 
-            //精华部分
+            //精华部分 j=j-1 让出一个空位可以完全移动所需调节的数据
             while (j >= 0 && insertNote < arr[j]) {
                 arr[j + 1] = arr[j];
                 j--;
