@@ -47,4 +47,18 @@ public class Maths {
             System.out.print(num + " ");
         }
     }
+
+    //插入排序
+    public static void insertSort(int[] arr) {
+        int i, j, insertNote;
+        for (i = 1; i < arr.length; i++) {
+            insertNote = arr[i];
+            j = i - 1;
+            while (j >= 0 && insertNote < arr[j]) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = insertNote;
+        }
+    }
 }
