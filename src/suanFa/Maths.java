@@ -1,13 +1,16 @@
 package suanFa;
 
+import java.util.Arrays;
+
 public class Maths {
     public static void main(String[] args) {
         int[] arr = {5, 4, 6, 3, 2, 7};
-        selectionSort(arr);
+        //selectionSort(arr);
         //maoPao(arr);
-
+        insertSort(arr);
     }
 
+    //冒泡排序
     public static void maoPao(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j < arr.length; j++) {
@@ -54,11 +57,14 @@ public class Maths {
         for (i = 1; i < arr.length; i++) {
             insertNote = arr[i];
             j = i - 1;
+
+            //精华部分
             while (j >= 0 && insertNote < arr[j]) {
                 arr[j + 1] = arr[j];
                 j--;
             }
             arr[j + 1] = insertNote;
         }
+        System.out.println(Arrays.toString(arr));
     }
 }
