@@ -7,7 +7,9 @@ public class Maths {
         int[] arr = {5, 4, 6, 3, 2, 7};
         //selectionSort(arr);
         //maoPao(arr);
-        insertSort(arr);
+        //insertSort(arr);
+        myXuanze(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     //冒泡排序
@@ -66,5 +68,21 @@ public class Maths {
             arr[j + 1] = insertNote;
         }
         System.out.println(Arrays.toString(arr));
+    }
+    //总的来说选择排序就是在冒泡排序的基础上减去了具体数值交换的过程 而是在每次排序后通过下标的方式 交换数值 减少了时间上的浪费和资源的利用
+    public static void myXuanze(int []array){
+        for(int x=0;x<array.length-1;x++){
+            int min=x;
+            for(int y=min+1;y<array.length;y++){
+                if(array[min]>array[y]){
+                    min=y;
+                }
+            }
+            if(min!=x){
+                int temp=array[x];
+                array[x]=array[min];
+                array[min]=temp;
+            }
+        }
     }
 }
