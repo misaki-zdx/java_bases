@@ -8,7 +8,8 @@ public class Maths {
         //selectionSort(arr);
         //maoPao(arr);
         //insertSort(arr);
-        myXuanze(arr);
+        // myXuanze(arr);
+        myInsertSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -69,20 +70,35 @@ public class Maths {
         }
         System.out.println(Arrays.toString(arr));
     }
+
     //总的来说选择排序就是在冒泡排序的基础上减去了具体数值交换的过程 而是在每次排序后通过下标的方式 交换数值 减少了时间上的浪费和资源的利用
-    public static void myXuanze(int []array){
-        for(int x=0;x<array.length-1;x++){
-            int min=x;
-            for(int y=min+1;y<array.length;y++){
-                if(array[min]>array[y]){
-                    min=y;
+    public static void myXuanze(int[] array) {
+        for (int x = 0; x < array.length - 1; x++) {
+            int min = x;
+            for (int y = min + 1; y < array.length; y++) {
+                if (array[min] > array[y]) {
+                    min = y;
                 }
             }
-            if(min!=x){
-                int temp=array[x];
-                array[x]=array[min];
-                array[min]=temp;
+            if (min != x) {
+                int temp = array[x];
+                array[x] = array[min];
+                array[min] = temp;
             }
+        }
+    }
+
+    //插入排序 通过循环每个数 与前面的数进行循环比较 保证每次循环都能将当前数字之前的数都能进行有序排列
+    public static void myInsertSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int insert = array[i];
+            int j = i - 1;
+            //循环与前面的数字比较 完成后成为有序的序列
+            while (j >= 0 && insert < array[j]) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = insert;
         }
     }
 }
